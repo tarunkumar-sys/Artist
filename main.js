@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function getImgSource(slideNumber) {
-        return `img/${normalizeSlideTitle(slideNumber)}.jpg`;
+        return `img/${normalizeSlideTitle(slideNumber)}.webp`;
     }
 
     function updateIndicators(index) {
