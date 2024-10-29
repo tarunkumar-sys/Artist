@@ -1,0 +1,275 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+html,body{
+    height: 100%;
+    font-family: "pp roder", sans-serif;
+    cursor: none;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+}
+
+.cursor{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid #f9b165;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:0.1s;
+    z-index: 9999;
+}
+.cursor2{
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color:#f9b165;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:0.15s;
+    z-index: 9999;
+}
+.slider-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.slider{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.slide{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
+}
+
+#slide-1{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+#head {
+    width: 100%;
+    height: 70px;  
+    position:absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    display: flex;
+    padding: 20px 30px;
+    justify-content: space-between;
+    color: #f9b165;
+    background:transparent;
+    z-index: 1000;
+}
+#head img{
+    width: 100px;
+    
+}
+#head #center{ 
+    display: flex;
+    gap: 100px;  
+}
+#head #center h5{
+    text-transform: uppercase;
+    font-size: 25px;
+    font-weight: 700;
+    transition: 0.5s;  
+}
+
+#head #right{
+
+}
+#head #right i{
+    font-size: 20px;
+    font-weight: 700;
+    font-weight: 100;
+    padding: 10px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #f9b165;
+}
+
+
+#head #center h5:hover,
+#head #right i:hover {
+    border-bottom: 1px solid #f9b165;
+    
+}
+
+.slider-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+}
+.slide-title{
+    position: absolute;
+    top: 90%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 0.25em;
+    text-transform: uppercase;
+    color: #f9b165;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 120px;
+    clip-path: polygon(0 0, 100% 0, 100% 150px, 0 150px);
+    will-change: transform;
+}
+
+.prefix{
+    padding: 0 0.25em;
+}
+
+.postfix{
+    position: relative;
+    top:0;
+    will-change: transform;
+}
+
+.slider-indicator{
+    position:fixed;
+    top: 0;
+    right: 1em;
+    width: 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;   
+    z-index: 10;
+}
+.index{
+    width: 100%;
+    height: 2px;
+    transform: scaleY(0.5);
+    background-color: #f9b165;
+    opacity: 1;
+    transform-origin: right center;
+}
+
+.index.active{
+    transform: scaleX(1.5);
+}
+
+.link{
+    position: fixed;
+    top:80%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    z-index: 10000;
+}
+
+.link-wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  
+    width: 300px;
+    height: 300px;
+    will-change: transform;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.link-wrapper a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.link-label{
+    position: absolute;
+    top: 34.7%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.link-label p{
+    text-transform: uppercase;
+    color: #f9b165;
+    font-size: 20px;
+    font-weight: 400;
+}
+.line{
+
+    height: 28px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+.line-1{
+    position: relative;
+    width: 80px;
+    left: -2px;
+}
+.line-2{
+    position: relative;
+    width: 120px;
+    left: 25px;
+}
+
+.line p{
+    position: absolute;
+    transform: translate(0);
+   will-change: transform;
+}
+svg,
+.link-label{
+    pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:900px){
+    .slide-title{
+        top: 60%;
+        left: 45%;
+        font-size: 40px;
+        line-height: 42px;
+        clip-path: polygon(0 0, 100% 0, 100% 42px, 0 42px);
+    }
+
+    .slider-indicator{
+        width: 40px;
+        padding-bottom: 2em;
+        justify-content: flex-end;
+    }
+
+    .link{
+        left: 50%;
+    }
+}
