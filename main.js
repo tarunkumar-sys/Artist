@@ -1,3 +1,12 @@
+function loaderAnimation() {
+    var loader = document.querySelector("#loader");
+    setTimeout(function () {
+        loader.style.top = "-100%";
+    }, 4200);
+}
+
+document.addEventListener('DOMContentLoaded', loaderAnimation);
+
 var cursor = document.querySelector(".cursor");
 var cursor2 = document.querySelector(".cursor2");
 
@@ -5,6 +14,58 @@ document.addEventListener("mousemove", function(e){
     cursor.style.cssText = cursor2.style.cssText = "left: " + e.clientX 
     + "px; top: " + e.clientY + "px;";
 })
+
+let audio = document.getElementById("audio");
+audio.volume = 0.1; // Set volume to 10%
+
+// Function to play audio
+function playAudio() {
+    audio.play().then(() => {
+        document.getElementById("music").classList.remove("paused");
+        updateIcon();
+        document.querySelectorAll('.bar').forEach(bar => {
+            bar.style.animation = "";
+        });
+    }).catch(error => {
+        console.error("Error playing audio:", error);
+    });
+}
+
+// Function to pause audio
+function pauseAudio() {
+    audio.pause();
+    document.getElementById("music").classList.add("paused");
+    updateIcon();
+    document.querySelectorAll('.bar').forEach(bar => {
+        bar.style.animation = "none"; 
+    });
+}
+
+// Function to update the icon based on the music status
+function updateIcon() {
+    const player = document.getElementById("music");
+    if (player.classList.contains("paused")) {
+        player.style.backgroundImage = "url('path/to/play-icon.png')"; // Replace with your play icon
+    } else {
+        player.style.backgroundImage = "url('path/to/pause-icon.png')"; // Replace with your pause icon
+    }
+}
+
+// Function to toggle music
+function toggleMusic() {
+    var player = document.getElementById("music");
+    if (player.classList.contains("paused")) {
+        playAudio();
+    } else {
+        pauseAudio();
+    }
+}
+
+// Load event to check audio status and start playing by default
+window.addEventListener("load", function() {
+    playAudio(); // Automatically play music on load
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     const sliderContainer = document.querySelector('.slider');
@@ -301,7 +362,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const relX = e.clientX - rect.left - rect.width / 2;
         const relY = e.clientY - rect.top - rect.height / 2;
 
-        xTo(relX * 0.5);
+        xTo(relX * 0.7);
         yTo(relY * 0.5);
     });
 

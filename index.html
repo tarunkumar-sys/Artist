@@ -11,6 +11,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="loader">
+        <h1>ENVIRONMENTS</h1>
+        <H1>EXPERIENCES</H1>
+        <H1>CONTENT</H1>
+        <p> For background music, double-click the music icon.</p>
+    </div>
+    
     <div class="slider-container">
         <div id="head">
             <img src="img/logo.webp" alt="">
@@ -62,6 +70,21 @@
                 </div>
             </div>
         </div>
+
+        <div class="music-button" id="music" onclick="toggleMusic()">
+            <div class="now playing">
+                <span class="bar n1"></span>
+                <span class="bar n2"></span>
+                <span class="bar n3"></span>
+                <span class="bar n4"></span>
+                <span class="bar n5"></span>
+                <span class="bar n6"></span>
+                <span class="bar n7"></span>
+                <span class="bar n8"></span>
+            </div>
+        </div>
+    
+        <audio id="audio" src="WHEELER-DEALER.mp3" preload="auto" loop></audio> 
 
         <div class="slider-indicator">
            <div class="index active"></div>
